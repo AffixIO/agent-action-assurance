@@ -1,8 +1,34 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "affixio-agent-action-assurance"
-version = "0.1.0"
-description = "A simulated policy gate and evidence ledger for AI agent actions."
+version = "0.2.0"
+description = "Signed agent mandates, constrained delegation and durable execution evidence."
 requires-python = ">=3.10"
+dependencies = ["cryptography>=46.0.5,<47"]
+readme = "README.md"
+license = "MIT"
+
+[project.urls]
+Repository = "https://github.com/AffixIO/agent-action-assurance"
+Documentation = "https://github.com/AffixIO/agent-action-assurance/blob/master/README.md"
+Issues = "https://github.com/AffixIO/agent-action-assurance/issues"
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "ruff>=0.14,<1", "build>=1,<2"]
+
+[project.scripts]
+agent-assurance = "assurance.demo:main"
+
+[tool.setuptools.packages.find]
+include = ["assurance*"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"
+extend-exclude = ["build", "dist"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
