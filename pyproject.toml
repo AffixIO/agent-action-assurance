@@ -1,0 +1,8 @@
+[project]
+name = "affixio-agent-action-assurance"
+version = "0.1.0"
+description = "A simulated policy gate and evidence ledger for AI agent actions."
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
